@@ -1,0 +1,10 @@
+{
+  "name": "add release note",
+  "id": "1135478585986394826",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "ui": "ui.html"
+}

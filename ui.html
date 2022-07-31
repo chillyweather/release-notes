@@ -1,0 +1,62 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/figma-plugin-ds.css"
+/>
+
+<style>
+  body {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  #input-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+  }
+  .button{
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+</style>
+
+<h2 class="header">Add Release Note</h2>
+
+<form id="input-form">
+  <div class="label">
+    <div class="label-text">Version</div>
+    <div class="input">
+      <input type="input" class="input__field" value="1.0" id="version" />
+    </div>
+  </div>
+  <textarea class="textarea" rows="16" id="details">Here be dragons</textarea>
+
+  <button type="submit" class="button button--primary" id="build">Add</button>
+</form>
+
+<script>
+  document.getElementById("input-form").onsubmit = () => {
+    const inputVersion = document.getElementById("version");
+    const inputDetails = document.getElementById("details");
+    
+    const version = inputVersion.value;
+    const details = inputDetails.value;
+    
+    parent.postMessage(
+      {
+        pluginMessage: {
+          type: "release-note",
+          version,
+          details
+        },
+      },
+      "*"
+    );
+  };
+</script>
