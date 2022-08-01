@@ -40,6 +40,7 @@ figma.ui.onmessage = ({ type, version, details }) => {
             releaseDetails = releaseDetails.detachInstance();
           }
           releaseDetails.insertChild(1, rowInstance);
+          releaseDetails.setPluginData
           
         } else {
           figma.notify(
